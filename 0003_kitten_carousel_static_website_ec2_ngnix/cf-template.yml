@@ -19,7 +19,14 @@ Resources:
           sudo yum update -y
           sudo yum install python3 -y 
           sudo pip3 install flask
-          wget .....
+          sudo wget https://raw.githubusercontent.com/Musti4096/Flask_Web_Server/master/0003_kitten_carousel_static_website_ec2_ngnix/app.py
+          sudo mkdir templates
+          cd templates
+          sudo wget https://raw.githubusercontent.com/Musti4096/Flask_Web_Server/master/0003_kitten_carousel_static_website_ec2_ngnix/templates/index.html
+          sudo wget https://raw.githubusercontent.com/Musti4096/Flask_Web_Server/master/0003_kitten_carousel_static_website_ec2_ngnix/templates/cat0.jpg
+          sudo wget https://raw.githubusercontent.com/Musti4096/Flask_Web_Server/master/0003_kitten_carousel_static_website_ec2_ngnix/templates/cat1.jpg
+          sudo wget https://raw.githubusercontent.com/Musti4096/Flask_Web_Server/master/0003_kitten_carousel_static_website_ec2_ngnix/templates/cat2.jpg
+          sudo cd ..
           sudo python3 app.py
 
 
