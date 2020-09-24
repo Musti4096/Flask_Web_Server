@@ -44,7 +44,7 @@ Resources:
         - !Ref MySecurtiyGroup
       Tags:
         - Key: Name
-          Value: Flask Web Server Roman Numerals Converter
+          Value: Flask Web Server SQL DataBase Application
       UserData:
         Fn::Base64:
           !Sub |
@@ -52,17 +52,18 @@ Resources:
           yum update -y
           yum install python3 -y
           pip3 install flask
-          wget https://raw.githubusercontent.com/Musti4096/aws_devops_workshop/master/aws/projects/001-roman-numerals-converter/app.py
+          pip3 install flask_sqlalchemy
+          wget https://raw.githubusercontent.com/Musti4096/Flask_Web_Server/master/0005_Flask_WS_handling_forms_and_sql_on_ec2_linux_with_cf_template/app.with.sqlite.py
           mkdir templates
           cd templates
-          wget https://raw.githubusercontent.com/Musti4096/aws_devops_workshop/master/aws/projects/001-roman-numerals-converter/templates/index.html
-          wget https://raw.githubusercontent.com/Musti4096/aws_devops_workshop/master/aws/projects/001-roman-numerals-converter/templates/result.html
+          wget https://raw.githubusercontent.com/Musti4096/Flask_Web_Server/master/0005_Flask_WS_handling_forms_and_sql_on_ec2_linux_with_cf_template/Templates/add-email.html
+          wget https://raw.githubusercontent.com/Musti4096/Flask_Web_Server/master/0005_Flask_WS_handling_forms_and_sql_on_ec2_linux_with_cf_template/Templates/emails.html
           cd ..
-          python3 app.py
+          python3 app.with.sqlite.py
   MySecurtiyGroup:
     Type: "AWS::EC2::SecurityGroup"
     Properties:
-      GroupDescription: Enable SSH and HTTP connection from anywhere #required
+      GroupDescription: Enable SSH, DB and  HTTP connection from anywhere #required
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 22 
@@ -71,6 +72,10 @@ Resources:
         - IpProtocol: tcp
           FromPort: 80 
           ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 3306 
+          ToPort: 3306
           CidrIp: 0.0.0.0/0 
 
           
