@@ -26,7 +26,7 @@ Resources:
           sudo wget https://raw.githubusercontent.com/Musti4096/Flask_Web_Server/master/0003_kitten_carousel_static_website_ec2_ngnix/templates/cat0.jpg
           sudo wget https://raw.githubusercontent.com/Musti4096/Flask_Web_Server/master/0003_kitten_carousel_static_website_ec2_ngnix/templates/cat1.jpg
           sudo wget https://raw.githubusercontent.com/Musti4096/Flask_Web_Server/master/0003_kitten_carousel_static_website_ec2_ngnix/templates/cat2.jpg
-          cd ..
+          cd .. 
           sudo python3 app.py
 
 
