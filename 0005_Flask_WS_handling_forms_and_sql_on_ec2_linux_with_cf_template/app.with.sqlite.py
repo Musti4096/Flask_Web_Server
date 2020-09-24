@@ -46,7 +46,7 @@ def insert_email(name, email):
     SELECT * FROM users WHERE username LIKE '{name}';
     """
     result = db.session.execute(query)
-    if name == None or email == None:
+    if name == "" or email == "":
         response = "Username or email can not be empty"
     elif not any(result):
         insert = f"""
@@ -81,5 +81,5 @@ def add_emails():
         return render_template("add-email.html", show_result = False)
 
 if __name__ == "__main__":
-    #app.run(debug = True)
-    app.run(host="0.0.0.0", port=80)
+    app.run(debug = True)
+    #app.run(host="0.0.0.0", port=80)

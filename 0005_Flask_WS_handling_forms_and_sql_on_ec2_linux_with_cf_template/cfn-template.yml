@@ -53,6 +53,7 @@ Resources:
           yum install python3 -y
           pip3 install flask
           pip3 install flask_sqlalchemy
+          cd /home/ec2-user
           wget https://raw.githubusercontent.com/Musti4096/Flask_Web_Server/master/0005_Flask_WS_handling_forms_and_sql_on_ec2_linux_with_cf_template/app.with.sqlite.py
           mkdir templates
           cd templates
